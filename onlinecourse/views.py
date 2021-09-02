@@ -121,7 +121,6 @@ def submit(request, course_id):
     for choice_id in choice_ids:
         choice = get_object_or_404(Choice, pk=choice_id)
         submission.choices.add(choice)
-    submission.save()
 
     return HttpResponseRedirect(reverse(viewname='onlinecourse:result', args=(course_id, submission.id)))
 
@@ -157,7 +156,7 @@ def show_exam_result(request, course_id, submission_id):
             total_score += 1
 
     context['course'] = course
-    contex['submitted_answers'] = submitted_answers
+    context['submitted_answers'] = submitted_answers
     context['grade'] = round((total_score / total_choices) * 100, 2)
 
     return render(request, 'onlinecourse/exam_result_bootstrap.html', context)

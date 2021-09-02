@@ -51,9 +51,9 @@
         <div class="card-columns-vertical mt-1">
         <h5 class="">Exam results</h5>
             <!--HINT Display exam results-->
-            {% for quiestion in course.question_set.all %}
+            {% for question in course.question_set.all %}
                 <div class="card mt-1">
-                    <div class="class-header"><h5>{{ question.content }}</h5></div>
+                    <div class="class-header"><h5>{{ question.question_text }}</h5></div>
                     <div class="card-body">
                         {% for choice in question.choice_set.all %}
                             <div class="form-check">
