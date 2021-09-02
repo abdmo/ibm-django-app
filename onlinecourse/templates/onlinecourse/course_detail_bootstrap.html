@@ -77,10 +77,11 @@
             <button type="button" style="width:100%" class="btn btn-primary" data-toggle="collapse" data-target="#exam">Start Exam</button>
 
             <div id="exam" class="collapse">
+                yolo
                 {% if user.is_authenticated %}
                     <!-- A choice submission form example -->
                     <form id="questionform" action="point to a submit view" method="post">
-                        {% csrf_token % }
+                        {% csrf_token %}
                         {% for question in course.question_set.all %}
                             <div class="card mt-1">
                                 <div class="card-header"><h5>{{ question.question_text}}</h5></div>
@@ -94,7 +95,7 @@
                                                     value="{{choice.id}}">{{ choice.choice_text }}
                                             </label>
                                         </div>
-                                    {% endor %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         {% endfor %}
